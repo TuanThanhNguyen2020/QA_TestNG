@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -15,10 +16,14 @@ public class ParametersExamples {
     @BeforeClass
     @Parameters({"browser","url"})
     void setUp(String browser, String app){
-        if ()
-        System.setProperty("webdriver.gecko.driver","C:/Drivers/geckodriver.exe");
-        driver=new FirefoxDriver();
-        driver.get("https://opensource-demo.orangehrmlive.com/");
+        if (browser.equalsIgnoreCase("firefox")){
+            System.setProperty("webdriver.gecko.driver","C:\\Users\\StarGlobal\\Testing\\Drivers\\geckodriver\\geckodriver.exe");
+            driver=new FirefoxDriver();
+        }else if(browser.equalsIgnoreCase("opera")){
+            System.setProperty("webdriver.opera.driver","C:\\Users\\StarGlobal\\Testing\\Drivers\\operadriver\\81.0.4044.113\\operadriver_win64\\operadriver.exe");
+            driver=new OperaDriver();
+        }
+        driver.get(app);
     }
 
     @Test(priority = 1)

@@ -14,8 +14,8 @@ public class AssertionsExamples {
     WebDriver driver;
     @BeforeClass
     void setUp(){
-        System.setProperty("webdriver.gecko.driver","C:/Drivers/geckodriver.exe");
-        driver=new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\StarGlobal\\Testing\\Drivers\\chromedriver.exe");
+        driver=new ChromeDriver();
 
     }
 
